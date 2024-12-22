@@ -1,0 +1,102 @@
+/* styles.css */
+
+/* Universal Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: black;
+    font-family: 'Orbitron', sans-serif;
+    overflow: hidden;
+    color: #00ffff;
+}
+
+/* Space-Themed Background */
+.space-background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(20, 20, 80, 1) 10%, black 80%);
+    overflow: hidden;
+}
+
+.space-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://your-space-image-link') no-repeat center center/cover;
+    opacity: 0.3;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+/* Holographic Menu Styles */
+.menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.menu-panel {
+    position: relative;
+    width: 400px;
+    padding: 30px;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.6);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), inset 0 0 10px rgba(0, 255, 255, 0.4);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.menu-panel h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+.menu-options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-options li {
+    margin: 15px 0;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #00ffff;
+    cursor: pointer;
+    transition: transform 0.3s, text-shadow 0.3s;
+}
+
+.menu-options li:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 20px rgba(0, 255, 255, 1);
+}
+
+/* Particle Effects */
+.space-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 5%, transparent 100%);
+    animation: flicker 5s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}

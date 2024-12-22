@@ -1,19 +1,14 @@
+import { AuthService } from "./service/AuthService.js";
+
 export const Auth = {
   isLoggedIn: false,
-  login(username, password) {
-      if (username === 'user' && password === 'pass') {
-          this.isLoggedIn = true;
-          localStorage.setItem('auth', true);
-          return true;
-      }
-      return false;
+
+  async checkAuth() {
+    return this.isLoggedIn ? AuthService.isLoggedIn() : false;
   },
-  logout() {
-      this.isLoggedIn = false;
-      localStorage.removeItem('auth');
-  },
-  checkAuth() {
-      this.isLoggedIn = localStorage.getItem('auth') === 'true';
-      return this.isLoggedIn;
-  },
+
+  login( username, password ) {
+    this.isLoggedIn = AuthService.login( username, password );
+    return this.isLoggedIn;
+  }
 };
